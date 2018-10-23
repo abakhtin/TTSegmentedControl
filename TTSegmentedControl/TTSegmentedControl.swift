@@ -27,7 +27,7 @@ open class TTSegmentedControl: UIView {
     
     //left and right space between items
     @IBInspectable open var padding: CGSize = CGSize(width: 30, height: 10)
-    @IBInspectable open var cornerRadius: CGFloat = -1 // for rounded corner radius use negative value, 0 to disable
+    @IBInspectable open var itemCornerRadius: CGFloat = -1 // for rounded corner radius use negative value, 0 to disable
     
     public enum DraggingState: Int {
         case none
@@ -118,7 +118,7 @@ open class TTSegmentedControl: UIView {
         }
         
         containerView.frame = bounds
-        containerView.layer.cornerRadius = cornerRadius < 0 ? 0.5 * containerView.frame.size.height : cornerRadius
+        containerView.layer.cornerRadius = itemCornerRadius < 0 ? 0.5 * containerView.frame.size.height : itemCornerRadius
         selectedLabelsView.frame = containerView.bounds
         
         updateFrameForLables(allItemLabels)
@@ -313,7 +313,7 @@ extension TTSegmentedControl {
         thumbContainerView.frame.size.height = containerView.frame.size.height
         
         thumbView.frame.size.height = containerView.frame.size.height - 4
-        thumbView.layer.cornerRadius = cornerRadius < 0 ? 0.5 * thumbView.frame.size.height : cornerRadius
+        thumbView.layer.cornerRadius = itemCornerRadius < 0 ? 0.5 * thumbView.frame.size.height : itemCornerRadius
         thumbView.frame.origin.y = 2
         
         
